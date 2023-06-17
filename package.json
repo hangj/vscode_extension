@@ -2,7 +2,10 @@
   "name": "allinone",
 	"displayName": "allinone",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"repository": {
+        "url": "https://github.com/hangj/vscode_extension"
+    },
 	"engines": {
 		"vscode": "^1.67.0"
 	},
@@ -20,19 +23,27 @@
 		"commands": [
 			{
 				"command": "allinone.helloWorld",
-				"title": "Hello World"
+				"title": "allinone: Hello World"
 			},
 			{
 				"command": "allinone.insert_line_number",
-				"title": "insert line number"
+				"title": "allinone: insert line number"
 			},
 			{
 				"command": "allinone.auto_multi_select",
-				"title": "auto multi select"
+				"title": "allinone: auto multi select"
 			},
 			{
 				"command": "allinone.auto_indent",
-				"title": "auto indent"
+				"title": "allinone: auto indent"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "allinone.auto_multi_select",
+				"key": "ctrl+shift+a",
+				"mac": "cmd+shift+a",
+				"when": "editorHasSelection"
 			}
 		]
 	},

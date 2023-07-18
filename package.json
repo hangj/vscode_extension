@@ -12,13 +12,7 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-        "onCommand:allinone.helloWorld",
-		"onCommand:allinone.insert_line_number", 
-		"onCommand:allinone.auto_multi_select",
-		"onCommand:allinone.auto_indent",
-		"onCommand:allinone.sum"
-	],
+	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
@@ -37,6 +31,10 @@
 			{
 				"command": "allinone.auto_indent",
 				"title": "allinone: auto indent"
+			},
+			{
+				"command": "allinone.sum",
+				"title": "allinone: sum all the selections"
 			}
 		],
 		"keybindings": [

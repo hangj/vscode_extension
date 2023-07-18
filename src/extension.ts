@@ -25,6 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_multi_select", on_auto_multi_select));
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_indent", on_auto_indent));
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.insert_line_number", on_insert_line_number));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.sum", on_sum));
 
 }
 
@@ -86,4 +87,23 @@ function on_insert_line_number(textEditor: vscode.TextEditor, edit: vscode.TextE
 
         edit.insert(sel.end, sel.end.line.toString())
     }
+}
+
+function on_sum(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, ...args: any[]) {
+    let sum = 0
+    let sels = textEditor.selections
+    for (let i in sels) {
+        let sel = sels[i]
+
+        let s = textEditor.document.getText(sel)
+        let num = Number(s)
+        if (isNaN(num)) {
+            vscode.window.showErrorMessage(s + "(on line: " + sel.start.line + ") is not a number", {modal: true})
+            return
+        }
+
+        sum += num
+    }
+
+    vscode.window.showInformationMessage('The sum is: ' + sum, {modal: true});
 }

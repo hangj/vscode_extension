@@ -17,12 +17,13 @@ export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('allinone.helloWorld', () => {
         // The code you place here will be executed every time your command is executed
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World from helloWorld!');
+        vscode.window.showInformationMessage('Hello World from helloWorld!', {modal: true})
     });
     context.subscriptions.push(disposable);
 
 
-    context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_multi_select", on_auto_multi_select));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_multi_select_with_empty_lines", on_auto_multi_select, {with_empty_lines: true}));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_multi_select", on_auto_multi_select, {with_empty_lines: false}));
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.auto_indent", on_auto_indent));
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.insert_line_number", on_insert_line_number));
     context.subscriptions.push(vscode.commands.registerTextEditorCommand("allinone.sum", on_sum));
@@ -33,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() { }
 
 
-function on_auto_multi_select(textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, ...args: any[]) {
+function on_auto_multi_select(this: any, textEditor: vscode.TextEditor, edit: vscode.TextEditorEdit, ...args: any[]) {
     let sels_new: vscode.Selection[] = []
     let sels = textEditor.selections
     for (let i in sels) {
@@ -41,7 +42,7 @@ function on_auto_multi_select(textEditor: vscode.TextEditor, edit: vscode.TextEd
 
         for (let i = sel.start.line; i <= sel.end.line; i++) {
             let line = textEditor.document.lineAt(i)
-            if (!line.range.isEmpty) {
+            if (!this.with_empty_lines && !line.range.isEmpty) {
                 sels_new.push(new vscode.Selection(line.range.start, line.range.end))
             }
         }
@@ -62,7 +63,7 @@ function on_auto_indent(textEditor: vscode.TextEditor, edit: vscode.TextEditorEd
         let sel = sels[i]
 
         if (lines.has(sel.start.line)) {
-            vscode.window.showErrorMessage("同一行不能有多个选择")
+            vscode.window.showErrorMessage("同一行不能有多个选择", {modal: true})
             return;
         }
         lines.set(sel.start.line, true)

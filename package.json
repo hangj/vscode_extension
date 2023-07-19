@@ -1,8 +1,9 @@
 {
   "name": "allinone",
 	"displayName": "allinone",
-	"description": "",
+	"description": "hangj's personal extension",
 	"version": "0.0.3",
+	"publisher": "hangj",
 	"repository": {
         "url": "https://github.com/hangj/vscode_extension"
     },
@@ -26,7 +27,11 @@
 			},
 			{
 				"command": "allinone.auto_multi_select",
-				"title": "allinone: auto multi select"
+				"title": "allinone: auto multi select(without empty lines)"
+			},
+			{
+				"command": "allinone.auto_multi_select_with_empty_lines",
+				"title": "allinone: auto multi select(with empty lines)"
 			},
 			{
 				"command": "allinone.auto_indent",

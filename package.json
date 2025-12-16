@@ -8,7 +8,7 @@
     "url": "https://github.com/hangj/vscode_extension"
   },
   "engines": {
-    "vscode": "^1.107.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
     "Other"
@@ -57,8 +57,8 @@
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/node": "25.0.2",
-    "@types/vscode": "^1.107.0",
-    "typescript": "^5.9.3"
+    "@types/node": "20.2.5",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.3"
   }
 }

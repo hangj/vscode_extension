@@ -60,8 +60,5 @@
     "@types/node": "25.0.2",
     "@types/vscode": "^1.107.0",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "@vscode/vsce": "^3.7.1"
   }
 }

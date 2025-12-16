@@ -1,69 +1,67 @@
 {
   "name": "allinone",
-	"displayName": "allinone",
-	"description": "hangj's personal extension",
-	"version": "0.0.3",
-	"publisher": "hangj",
-	"repository": {
-        "url": "https://github.com/hangj/vscode_extension"
-    },
-	"engines": {
-		"vscode": "^1.80.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "allinone.helloWorld",
-				"title": "allinone: Hello World"
-			},
-			{
-				"command": "allinone.insert_line_number",
-				"title": "allinone: insert line number"
-			},
-			{
-				"command": "allinone.auto_multi_select",
-				"title": "allinone: auto multi select(without empty lines)"
-			},
-			{
-				"command": "allinone.auto_multi_select_with_empty_lines",
-				"title": "allinone: auto multi select(with empty lines)"
-			},
-			{
-				"command": "allinone.auto_indent",
-				"title": "allinone: auto indent"
-			},
-			{
-				"command": "allinone.sum",
-				"title": "allinone: sum all the selections"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "allinone.auto_multi_select",
-				"key": "ctrl+shift+a",
-				"mac": "cmd+shift+a",
-				"when": "editorHasSelection"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.80.0",
-		"@types/glob": "^8.1.0",
-		"@types/mocha": "^10.0.1",
-		"@types/node": "20.2.5",
-		"glob": "^8.1.0",
-		"mocha": "^10.8.2",
-		"typescript": "^5.1.3",
-		"@vscode/test-electron": "^2.3.2"
-	}
+  "displayName": "allinone",
+  "description": "hangj's personal extension",
+  "version": "0.0.3",
+  "publisher": "hangj",
+  "repository": {
+    "url": "https://github.com/hangj/vscode_extension"
+  },
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "allinone.helloWorld",
+        "title": "allinone: Hello World"
+      },
+      {
+        "command": "allinone.insert_line_number",
+        "title": "allinone: insert line number"
+      },
+      {
+        "command": "allinone.auto_multi_select",
+        "title": "allinone: auto multi select(without empty lines)"
+      },
+      {
+        "command": "allinone.auto_multi_select_with_empty_lines",
+        "title": "allinone: auto multi select(with empty lines)"
+      },
+      {
+        "command": "allinone.auto_indent",
+        "title": "allinone: auto indent"
+      },
+      {
+        "command": "allinone.sum",
+        "title": "allinone: sum all the selections"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "allinone.auto_multi_select",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a",
+        "when": "editorHasSelection"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.2",
+    "@types/vscode": "^1.107.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.7.1"
+  }
 }
